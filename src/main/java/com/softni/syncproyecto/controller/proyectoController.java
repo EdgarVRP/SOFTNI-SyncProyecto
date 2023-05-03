@@ -25,27 +25,33 @@ public class proyectoController {
         return projectRepository.findAll();
     }
 
+    // Se obtiene un proyecto por su idProyecto
+    @GetMapping("/proyectos/{idProyecto}")
+    public List<proyecto> obtenerEntidadPorIdProyecto(@PathVariable String idProyecto) {
+        System.out.println("Se obtiene un proyecto por su idProyecto: " + idProyecto);
+        System.out
+                .println("Se obtiene un proyecto por su idProyecto: " + projectRepository.findByIdProyecto(idProyecto));
+        return projectRepository.findByIdProyecto(idProyecto);
+    }
+
     @PostMapping("/proyectos")
     public proyecto guardarEntidad(@RequestBody proyecto entidad) {
         System.out.println("Se guarda un proyecto: " + entidad.toString());
         return projectRepository.save(entidad);
     }
 
-    @PutMapping("/proyectos/{id}")
-    public proyecto actualizarEntidad(@PathVariable Integer id, @RequestBody proyecto entidad) {
-        entidad.setId(id.toString());
+    // Peticion PUT para actualizar un proyecto
+    @PutMapping("/proyectos/{idProyecto}")
+    public proyecto actualizarEntidad(@RequestBody proyecto entidad, @PathVariable String idProyecto) {
         System.out.println("Se actualiza un proyecto: " + entidad.toString());
         return projectRepository.save(entidad);
     }
 
-    @DeleteMapping("/proyectos/{id}")
-    public void eliminarEntidad(@PathVariable String id) {
-        System.out.println("Se elimina un proyecto: " + id);
-        // La entidad se elimina por el id, no por el objeto, la entidad borrada se
-        // devuelve en la respuesta
-        System.out.println("Se elimina un proyecto: " + projectRepository.findById(id).toString());
-        projectRepository.deleteById(id.toString());
-
+    // Peticion DELETE para eliminar un proyecto
+    @DeleteMapping("/proyectos/{idProyecto}")
+    public void eliminarEntidad(@PathVariable String idProyecto) {
+        System.out.println("Se elimina un proyecto: " + idProyecto);
+        projectRepository.deleteById(idProyecto);
     }
 
 }

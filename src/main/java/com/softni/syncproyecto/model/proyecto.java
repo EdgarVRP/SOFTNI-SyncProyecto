@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "proyecto")
 public class proyecto {
     String id;
-    Integer idProyecto;
+    String idProyecto;
     String projectName;
     Integer numContrato;
     String fechaContratoProyecto;
@@ -32,11 +32,11 @@ public class proyecto {
         this.id = id;
     }
 
-    public Integer getIdProyecto() {
+    public String getIdProyecto() {
         return this.idProyecto;
     }
 
-    public void setIdProyecto(Integer idProyecto) {
+    public void setIdProyecto(String idProyecto) {
         this.idProyecto = idProyecto;
     }
 
