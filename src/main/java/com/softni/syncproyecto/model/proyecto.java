@@ -7,21 +7,21 @@ public class proyecto {
     String id;
     String idProyecto;
     String projectName;
-    Integer numContrato;
+    String numContrato;
     String fechaContratoProyecto;
-    Integer totalCredito;
-    Integer creditoPagado;
-    Integer creditoPendientePago;
-    Integer tasaInteres;
+    String totalCredito;
+    String creditoPagado;
+    String creditoPendientePago;
+    String tasaInteres;
     String rutaContrato;
-    Integer plazoCredito;
+    String plazoCredito;
     Boolean Flujos;
     Boolean Finanzas;
     Boolean Fideicomisos;
     Boolean revisionDocumental;
     Boolean revisionLegal;
     Boolean revisionTecnica;
-    Integer numProveedores;
+    String numProveedores;
     String diaPago;
 
     public String getId() {
@@ -48,11 +48,11 @@ public class proyecto {
         this.projectName = projectName;
     }
 
-    public Integer getNumContrato() {
+    public String getNumContrato() {
         return this.numContrato;
     }
 
-    public void setNumContrato(Integer numContrato) {
+    public void setNumContrato(String numContrato) {
         this.numContrato = numContrato;
     }
 
@@ -64,35 +64,35 @@ public class proyecto {
         this.fechaContratoProyecto = fechaContratoProyecto;
     }
 
-    public Integer getTotalCredito() {
+    public String getTotalCredito() {
         return this.totalCredito;
     }
 
-    public void setTotalCredito(Integer totalCredito) {
+    public void setTotalCredito(String totalCredito) {
         this.totalCredito = totalCredito;
     }
 
-    public Integer getCreditoPagado() {
+    public String getCreditoPagado() {
         return this.creditoPagado;
     }
 
-    public void setCreditoPagado(Integer creditoPagado) {
+    public void setCreditoPagado(String creditoPagado) {
         this.creditoPagado = creditoPagado;
     }
 
-    public Integer getCreditoPendientePago() {
+    public String getCreditoPendientePago() {
         return this.creditoPendientePago;
     }
 
-    public void setCreditoPendientePago(Integer creditoPendientePago) {
+    public void setCreditoPendientePago(String creditoPendientePago) {
         this.creditoPendientePago = creditoPendientePago;
     }
 
-    public Integer getTasaInteres() {
+    public String getTasaInteres() {
         return this.tasaInteres;
     }
 
-    public void setTasaInteres(Integer tasaInteres) {
+    public void setTasaInteres(String tasaInteres) {
         this.tasaInteres = tasaInteres;
     }
 
@@ -104,11 +104,11 @@ public class proyecto {
         this.rutaContrato = rutaContrato;
     }
 
-    public Integer getPlazoCredito() {
+    public String getPlazoCredito() {
         return this.plazoCredito;
     }
 
-    public void setPlazoCredito(Integer plazoCredito) {
+    public void setPlazoCredito(String plazoCredito) {
         this.plazoCredito = plazoCredito;
     }
 
@@ -184,11 +184,11 @@ public class proyecto {
         this.revisionTecnica = revisionTecnica;
     }
 
-    public Integer getNumProveedores() {
+    public String getNumProveedores() {
         return this.numProveedores;
     }
 
-    public void setNumProveedores(Integer numProveedores) {
+    public void setNumProveedores(String numProveedores) {
         this.numProveedores = numProveedores;
     }
 
