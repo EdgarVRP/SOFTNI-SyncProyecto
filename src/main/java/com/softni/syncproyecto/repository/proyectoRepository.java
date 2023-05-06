@@ -8,4 +8,6 @@ import com.softni.syncproyecto.model.proyecto;
 
 public interface proyectoRepository extends MongoRepository<proyecto, String> {
     List<proyecto> findByIdProyecto(String idProyecto);
+
+    void deleteByIdProyecto(String idProyecto);
 }

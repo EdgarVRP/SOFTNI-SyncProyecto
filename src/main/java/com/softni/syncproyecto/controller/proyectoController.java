@@ -123,7 +123,10 @@ public class proyectoController {
     @DeleteMapping("/proyectos/{idProyecto}")
     public void eliminarEntidad(@PathVariable String idProyecto) {
         System.out.println("Se elimina un proyecto: " + idProyecto);
-        projectRepository.deleteById(idProyecto);
+        // projectRepository.findByIdProyecto(idProyecto);
+        // se elimina el proyecto
+        projectRepository.deleteByIdProyecto(idProyecto);
+
     }
 
 }
