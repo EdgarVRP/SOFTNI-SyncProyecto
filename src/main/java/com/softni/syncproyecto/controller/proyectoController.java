@@ -1,6 +1,8 @@
 package com.softni.syncproyecto.controller;
 
+import java.io.Console;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -43,8 +45,78 @@ public class proyectoController {
     // Peticion PUT para actualizar un proyecto
     @PutMapping("/proyectos/{idProyecto}")
     public proyecto actualizarEntidad(@RequestBody proyecto entidad, @PathVariable String idProyecto) {
-        System.out.println("Se actualiza un proyecto: " + entidad.toString());
-        return projectRepository.save(entidad);
+        List<proyecto> proyectoExistente = projectRepository.findByIdProyecto(idProyecto);
+
+        if (proyectoExistente.size() > 0) {
+            proyecto proyectoActualizado = proyectoExistente.get(0);
+            if (entidad.getProjectName() != null) {
+                proyectoActualizado.setProjectName(entidad.getProjectName());
+            }
+            if (entidad.getNumContrato() != null) {
+                proyectoActualizado.setNumContrato(entidad.getNumContrato());
+            }
+            if (entidad.getFechaContratoProyecto() != null) {
+                proyectoActualizado.setFechaContratoProyecto(entidad.getFechaContratoProyecto());
+            }
+            if (entidad.getTotalCredito() != null) {
+                proyectoActualizado.setTotalCredito(entidad.getTotalCredito());
+            }
+            if (entidad.getCreditoPagado() != null) {
+                proyectoActualizado.setCreditoPagado(entidad.getCreditoPagado());
+            }
+            if (entidad.getCreditoPendientePago() != null) {
+                proyectoActualizado.setCreditoPendientePago(entidad.getCreditoPendientePago());
+            }
+            /*
+             * String tasaInteres;
+             * String rutaContrato;
+             * String plazoCredito;
+             * Boolean Flujos;
+             * Boolean Finanzas;
+             * Boolean Fideicomisos;
+             * Boolean revisionDocumental;
+             * Boolean revisionLegal;
+             * Boolean revisionTecnica;
+             * String numProveedores;
+             * String diaPago;
+             */
+            if (entidad.getRutaContrato() != null) {
+                proyectoActualizado.setRutaContrato(entidad.getRutaContrato());
+            }
+            if (entidad.getPlazoCredito() != null) {
+                proyectoActualizado.setPlazoCredito(entidad.getPlazoCredito());
+            }
+            if (entidad.getFlujos() != null) {
+                proyectoActualizado.setFlujos(entidad.getFlujos());
+            }
+            if (entidad.getFinanzas() != null) {
+                proyectoActualizado.setFinanzas(entidad.getFinanzas());
+            }
+            if (entidad.getFideicomisos() != null) {
+                proyectoActualizado.setFideicomisos(entidad.getFideicomisos());
+            }
+            if (entidad.getRevisionDocumental() != null) {
+                proyectoActualizado.setRevisionDocumental(entidad.getRevisionDocumental());
+            }
+            if (entidad.getRevisionLegal() != null) {
+                proyectoActualizado.setRevisionLegal(entidad.getRevisionLegal());
+            }
+            if (entidad.getRevisionTecnica() != null) {
+                proyectoActualizado.setRevisionTecnica(entidad.getRevisionTecnica());
+            }
+            if (entidad.getNumProveedores() != null) {
+                proyectoActualizado.setNumProveedores(entidad.getNumProveedores());
+            }
+            if (entidad.getDiaPago() != null) {
+                proyectoActualizado.setDiaPago(entidad.getDiaPago());
+            }
+            projectRepository.save(proyectoActualizado);
+            return proyectoActualizado;
+        } else {
+            // Manejar el caso en que el proyecto no existe
+            System.out.println("El proyecto no existe");
+            return null;
+        }
     }
 
     // Peticion DELETE para eliminar un proyecto
