@@ -46,7 +46,6 @@ public class proyectoController {
     @PutMapping("/proyectos/{idProyecto}")
     public proyecto actualizarEntidad(@RequestBody proyecto entidad, @PathVariable String idProyecto) {
         List<proyecto> proyectoExistente = projectRepository.findByIdProyecto(idProyecto);
-
         if (proyectoExistente.size() > 0) {
             proyecto proyectoActualizado = proyectoExistente.get(0);
             if (entidad.getProjectName() != null) {
@@ -67,19 +66,6 @@ public class proyectoController {
             if (entidad.getCreditoPendientePago() != null) {
                 proyectoActualizado.setCreditoPendientePago(entidad.getCreditoPendientePago());
             }
-            /*
-             * String tasaInteres;
-             * String rutaContrato;
-             * String plazoCredito;
-             * Boolean Flujos;
-             * Boolean Finanzas;
-             * Boolean Fideicomisos;
-             * Boolean revisionDocumental;
-             * Boolean revisionLegal;
-             * Boolean revisionTecnica;
-             * String numProveedores;
-             * String diaPago;
-             */
             if (entidad.getRutaContrato() != null) {
                 proyectoActualizado.setRutaContrato(entidad.getRutaContrato());
             }
@@ -126,7 +112,5 @@ public class proyectoController {
         // projectRepository.findByIdProyecto(idProyecto);
         // se elimina el proyecto
         projectRepository.deleteByIdProyecto(idProyecto);
-
     }
-
 }
